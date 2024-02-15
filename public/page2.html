@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sayfa 2</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background-color: #fff; /* Arka plan rengi beyaz */
+            background-size: cover; /* Arka plan resmini ekran boyutuna uyumlu hale getir */
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+        .container {
+            position: relative;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            z-index: 1;
+        }
+        #text {
+            font-size: 4vw; /* Metin boyutunu cihaz ekranına göre ayarla */
+            font-weight: bold; /* Kalınlık ekledik */
+            text-align: center;
+            margin-bottom: 5vh; /* Metin ile buton arasındaki boşluğu artırdık */
+        }
+        .button {
+            display: inline-block;
+            padding: 3vh 6vw; /* Düğme boyutunu cihaz ekranına göre ayarla */
+            background-color: #000;
+            color: #fff;
+            border: 2px solid #fff;
+            border-radius: 25px;
+            text-align: center;
+            font-size: 3vw; /* Düğme boyutunu cihaz ekranına göre ayarla */
+            cursor: pointer;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            margin-top: 5vh;
+        }
+        .button:hover {
+            background-color: #fff;
+            color: #000;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div id="text">Bizi Seçdiyiniz Üçün Təşəkkür Edirik</div>
+        <a href="#" class="button" onclick="goToPage1()">Sayfa 1'e Geri Dön</a>
+    </div>
+
+    <script>
+        // Renk değişimi
+        function changeColor() {
+            var r = Math.floor(Math.random() * 256);
+            var g = Math.floor(Math.random() * 256);
+            var b = Math.floor(Math.random() * 256);
+            document.body.style.color = `rgb(${r},${g},${b})`;
+        }
+
+        setInterval(changeColor, 1000); // 1 saniyede bir renk değiştir
+
+        // Arka plan GIF'i
+        var gif = "https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExOG1lMG14czFzdHExdHQ5Z2Myd3d4NWtxMmdxbXQ1MDRncXc3cnlpbyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/l3E6IlIx5f9nVjd84/giphy.gif";
+        document.body.style.backgroundImage = `url('${gif}')`;
+
+        function goToPage1() {
+            window.location.href = "index.html";
+        }
+    </script>
+</body>
+</html>

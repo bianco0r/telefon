@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sayfa 1</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            overflow: hidden;
+            background-image: url('https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExY2pyemI1ODB5ODV5MDlxYmZodXExeGZlc3djMmhoeGlzcmZ1bDlldyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/3o7buijTqhjxjbEqjK/giphy.gif');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+        .container {
+            position: relative;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            z-index: 1;
+        }
+        .button-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 50px; /* Buttonların yukarı taşınması */
+        }
+        .button {
+            margin: 10px; /* Buttonlar arasında boşluk */
+            padding: 15px 30px;
+            background: linear-gradient(to right, #FF69B4, #800080); /* Mor ve pembe tonları arasında geçiş */
+            color: #fff; /* Metni beyaz yap */
+            border: 2px solid #fff;
+            border-radius: 25px;
+            text-align: center;
+            font-size: 24px;
+            font-weight: bold; /* Kalın font */
+            cursor: pointer;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.5); /* Kenar efekti */
+        }
+        .button:hover {
+            background: linear-gradient(to right, #FF69B4, #800080); /* Mor ve pembe tonları arasında geçiş */
+            color: #fff; /* Metni beyaz yap */
+            box-shadow: 0px 0px 20px rgba(255, 255, 255, 1); /* Kenar efekti hover durumunda daha belirgin hale gelsin */
+        }
+        .icon {
+            position: fixed;
+            animation: fall 5s linear infinite; /* Simgelerin sürekli hareketi */
+        }
+        @keyframes fall {
+            0% {
+                transform: translateY(-10px); /* Başlangıç yüksekliği */
+                opacity: 0; /* Başlangıç opaklığı */
+            }
+            100% {
+                transform: translateY(100vh); /* Bitiş yüksekliği */
+                opacity: 1; /* Bitiş opaklığı */
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="button-container">
+            <a href="#" class="button" onclick="openServicesPage()">Xidmətlərimiz</a>
+        </div>
+        <div class="button-container">
+            <a href="https://www.instagram.com/bella.tech.baku/?next=%2Fbellatechnology%2F" class="button">İNSTAGRAM</a>
+            <a href="#" class="button" onclick="openAboutPage()">...</a>
+        </div>
+        <div class="button-container">
+            <a href="#" class="button" onclick="openBiographyPage()">Biografiya</a>
+        </div>
+    </div>
+
+    <script>
+        function openAboutPage() {
+            window.open("page2.html", "_self");
+        }
+
+        function openServicesPage() {
+            window.open("page3.html", "_self");
+        }
+
+        function openBiographyPage() {
+            window.open("page4.html", "_self");
+        }
+
+        // Konfeti oluşturma fonksiyonu
+        function createConfetti(event) {
+            const confetti = document.createElement('div');
+            confetti.innerHTML = '❄️'; // Beyaz klasik konfeti emoji
+            confetti.classList.add('icon');
+            confetti.style.left = `${event.clientX}px`; // Fare konumuna göre yatay konum
+            confetti.style.top = `${event.clientY}px`; // Fare konumuna göre dikey konum
+            document.body.appendChild(confetti); // Konfetiyi sayfaya ekleme
+            setTimeout(() => {
+                confetti.remove(); // Belirli bir süre sonra konfeti simgesini kaldırma
+            }, 5000); // 5 saniye sonra kaldır
+        }
+
+        // Mouse hareketi dinleyicisi
+        document.addEventListener('mousemove', createConfetti);
+    </script>
+</body>
+</html>
